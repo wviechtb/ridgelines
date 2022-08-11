@@ -1,0 +1,11 @@
+Package: ridgelines
+Version: 0.9-1
+Date: 2022-08-11
+Title: Ridgeline Charts Using Base R Graphics
+Authors@R: person(given = "Wolfgang", family = "Viechtbauer", role = c("aut","cre"), email = "wvb@wvbauer.com", comment = c(ORCID = "0000-0003-3463-4063"))
+Depends: R (>= 4.0.0)
+Imports: stats, graphics, grDevices
+Description: A ridgeline chart consists of a stacked series of kernel density estimates superimposed on the same figure. This package provides a function for creating such figures using 'base R graphics'.
+License: GPL (>=2)
+URL: https://github.com/wviechtb/ridgelines https://www.wvbauer.com
+BugReports: https://github.com/wviechtb/ridgelines/issues
