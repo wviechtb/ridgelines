@@ -1,0 +1,26 @@
+############################################################################
+
+Package name ideas:
+- ridgelines
+- poRRidge (some variation on that)
+
+Ridgeline chart examples on the R graph gallery:
+https://r-graph-gallery.com/ridgeline-plot.html
+
+ggridges package:
+https://cran.r-project.org/package=ggridges
+
+############################################################################
+
+to do:
+
+- instead of requiring either 1 or p colors, use rep_len(col, p) for more
+  flexibility
+
+- rescaling of y options:
+  1) rescale all to the same height
+  2) rescale y as a function of the group frequencies
+  3) rescale all to the maximum over all groups
+  4) do not rescale at all
+
+############################################################################
