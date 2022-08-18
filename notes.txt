@@ -9,18 +9,45 @@ https://r-graph-gallery.com/ridgeline-plot.html
 
 ggridges package:
 https://cran.r-project.org/package=ggridges
+Gallery of ggridges examples: https://cran.r-project.org/web/packages/ggridges/vignettes/gallery.html
+Introduction to ggridges: https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html
 
 ############################################################################
 
-to do:
+to do / ideas:
 
 - instead of requiring either 1 or p colors, use rep_len(col, p) for more
   flexibility
 
+- formula interface
+
 - rescaling of y options:
-  1) rescale all to the same height
-  2) rescale y as a function of the group frequencies
-  3) rescale all to the maximum over all groups
-  4) do not rescale at all
+  1) rescale all to the maximum over all groups
+  2) rescale all to the same height
+  3) rescale y as a function of the group frequencies
+
+- labeling of groups: might want to use other labels than the actual levels of
+  the grp variable (something longer/more descriptive); add an argument for
+  that? but 'labels' of factor() essentially can take care of that, so this
+  isn't really needed
+
+grp <- factor(c("blue","blue","red","green"),
+              levels = c("green", "blue", "red"),
+              labels = c("Group Green", "Group Blue", "Group Red"))
+levels(grp)
+
+other possible options:
+
+- gradient within each ridge
+- different colors for tails in each ridge
+- show some summary statistics (e.g., mean/median/quartiles as vertical lines
+  in the ridges)
+- multiple ridges in the same vertical position (how with grp? with formula
+  interface, can use an interaction; also how does col work then?)
+- add raw data / points (but could also add this via stripchart())
+- add rug
+- vertical grid lines
+- y-axis label
+- adjust left margin automatically based on the max length of the levels
 
 ############################################################################
