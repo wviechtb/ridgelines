@@ -1,14 +1,13 @@
 ############################################################################
 
 Package name ideas:
-- ridgelines
+- ridgeline(s)
 - poRRidge (some variation on that)
 
 Ridgeline chart examples on the R graph gallery:
 https://r-graph-gallery.com/ridgeline-plot.html
 
-ggridges package:
-https://cran.r-project.org/package=ggridges
+ggridges package: https://cran.r-project.org/package=ggridges
 Gallery of ggridges examples: https://cran.r-project.org/web/packages/ggridges/vignettes/gallery.html
 Introduction to ggridges: https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html
 
@@ -16,15 +15,38 @@ Introduction to ggridges: https://cran.r-project.org/web/packages/ggridges/vigne
 
 to do / ideas:
 
-- instead of requiring either 1 or p colors, use rep_len(col, p) for more
-  flexibility
+- formula interface to the function
 
-- formula interface
+- instead of completely suppressing ylab, consider a horizontal header above
+  the y-axis
 
-- rescaling of y options:
-  1) rescale all to the maximum over all groups
-  2) rescale all to the same height
-  3) rescale y as a function of the group frequencies
+other possible options:
+
+- gradient within each ridge
+- different colors for tails in each ridge
+- show some summary statistics (e.g., mean/median/quartiles) as vertical lines
+  in the ridges
+- multiple ridges in the same vertical position (how with grp? with formula
+  interface, can use an interaction; also how does col work then?)
+- add raw data / points (but could also add this via stripchart())
+- add rug
+- vertical grid lines
+- adjust left margin automatically based on the max length of the levels
+
+############################################################################
+
+potentially for later:
+
+- add option to rescale y as a function of the group frequencies?
+
+- maybe make default computation of ylim clever in case height is negative
+
+- what about things like lwd, lty, etc.? is it sufficient to just pass these
+  via ... or do we want to make them explicit arguments?
+
+############################################################################
+
+not done:
 
 - labeling of groups: might want to use other labels than the actual levels of
   the grp variable (something longer/more descriptive); add an argument for
@@ -36,18 +58,9 @@ grp <- factor(c("blue","blue","red","green"),
               labels = c("Group Green", "Group Blue", "Group Red"))
 levels(grp)
 
-other possible options:
-
-- gradient within each ridge
-- different colors for tails in each ridge
-- show some summary statistics (e.g., mean/median/quartiles as vertical lines
-  in the ridges)
-- multiple ridges in the same vertical position (how with grp? with formula
-  interface, can use an interaction; also how does col work then?)
-- add raw data / points (but could also add this via stripchart())
-- add rug
-- vertical grid lines
-- y-axis label
-- adjust left margin automatically based on the max length of the levels
+- add a 'bty' argument: not needed, since one can pass bty multiple times to
+  the plot() function and the last one takes effect
+  plot(1, bty="n", bty="l")
+  so we don't need a bty argument
 
 ############################################################################
